@@ -77,10 +77,10 @@ class WelcomeScreen extends StatelessWidget {
     double logoHeight = isMobile ? 90 : (isTablet ? 90 : 91);
 
     // Font sizes
-    double welcomeFontSize = isMobile ? 22 : (isTablet ? 24 : 26);
-    double subtitleFontSize = isMobile ? 16 : (isTablet ? 18 : 20);
-    double descriptionFontSize = isMobile ? 12 : (isTablet ? 13 : 14);
-    double buttonFontSize = isMobile ? 18 : (isTablet ? 20 : 22);
+    double welcomeFontSize = isMobile ? 26 : (isTablet ? 28 : 26);
+    double subtitleFontSize = isMobile ? 20 : (isTablet ? 20 : 20);
+    double descriptionFontSize = isMobile ? 16 : (isTablet ? 16 : 16);
+    double buttonFontSize = isMobile ? 22 : (isTablet ? 22 : 22);
 
     // Button dimensions
     double buttonWidth = isMobile ? 200 : (isTablet ? 220 : 257);
@@ -121,7 +121,7 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 24),
                   Text(
-                    'Organize your life, enjoy your time',
+                    'Unlock English. Unlock Opportunity',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.black,
@@ -132,7 +132,7 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 18),
                   Text(
-                    'Quick appointment booking\nNo worries about being late, no worries about forgetting',
+                    'English Made Easy. Success Made Closer',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.black,

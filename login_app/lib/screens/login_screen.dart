@@ -37,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('Đăng nhập thành công!'),
+            content: Text('Login successful!'),
             backgroundColor: Colors.green,
           ),
         );
@@ -60,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('Đăng nhập Google thành công!'),
+            content: Text('Google login successful!'),
             backgroundColor: Colors.green,
           ),
         );
@@ -83,7 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('Đăng nhập Facebook thành công!'),
+            content: Text('Facebook login successful!'),
             backgroundColor: Colors.green,
           ),
         );
@@ -143,7 +143,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   _buildLogo(logoWidth, logoHeight),
                   const SizedBox(height: 32),
                   Text(
-                    'Đăng Nhập',
+                    'Login',
                     style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
@@ -151,7 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Chào mừng bạn trở lại!',
+                    'Welcome back!',
                     style: Theme.of(
                       context,
                     ).textTheme.bodyMedium?.copyWith(color: Colors.grey),
@@ -170,7 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   _DividerText(text: 'HOẶC'),
                   const SizedBox(height: 24),
                   SocialButton(
-                    label: 'Đăng nhập với Google',
+                    label: 'Sign in with Google',
                     asset: 'assets/google.png',
                     color: Colors.red,
                     textColor: Colors.white,
@@ -178,7 +178,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 12),
                   SocialButton(
-                    label: 'Đăng nhập với Facebook',
+                    label: 'Sign in with Facebook',
                     asset: 'assets/facebook.png',
                     color: const Color(0xFF1877F2),
                     textColor: Colors.white,
@@ -186,7 +186,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 12),
                   SocialButton(
-                    label: 'Đăng nhập với GitHub',
+                    label: 'Sign in with GitHub',
                     asset: 'assets/github.png',
                     color: Colors.black,
                     textColor: Colors.white,
@@ -233,10 +233,10 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Vui lòng nhập email';
+          return 'Please enter email';
         }
         if (!value.contains('@')) {
-          return 'Email không hợp lệ';
+          return 'Invalid email';
         }
         return null;
       },
@@ -248,7 +248,7 @@ class _LoginScreenState extends State<LoginScreen> {
       controller: _passwordController,
       obscureText: _obscurePassword,
       decoration: InputDecoration(
-        labelText: 'Mật khẩu',
+        labelText: 'Password',
         hintText: '••••••••',
         prefixIcon: const Icon(Icons.lock_outlined),
         suffixIcon: IconButton(
@@ -267,10 +267,10 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Vui lòng nhập mật khẩu';
+          return 'Please enter password';
         }
         if (value.length < 6) {
-          return 'Mật khẩu phải có ít nhất 6 ký tự';
+          return 'Password must be at least 6 characters';
         }
         return null;
       },
@@ -293,7 +293,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
               ),
             )
-          : const Text('Đăng Nhập', style: TextStyle(fontSize: 16)),
+          : const Text('Login', style: TextStyle(fontSize: 16)),
     );
   }
 }
@@ -378,7 +378,7 @@ class _RegisterLink extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text('Chưa có tài khoản?'),
+        const Text('Do not have an account?'),
         TextButton(
           onPressed: () {
             Navigator.push(
@@ -386,7 +386,7 @@ class _RegisterLink extends StatelessWidget {
               MaterialPageRoute(builder: (context) => const RegisterScreen()),
             );
           },
-          child: const Text('Đăng ký ngay'),
+          child: const Text('Register now'),
         ),
       ],
     );
@@ -403,7 +403,7 @@ class _ForgotPasswordLink extends StatelessWidget {
           MaterialPageRoute(builder: (context) => const ForgotPasswordScreen()),
         );
       },
-      child: const Text('Quên mật khẩu?'),
+      child: const Text('Forgot password?'),
     );
   }
 }
