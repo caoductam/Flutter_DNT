@@ -6,8 +6,8 @@ class WelcomeScreen extends StatelessWidget {
 
   // Tách phần logo thành widget riêng
   Widget _buildLogo(double width, double height) {
-    return Image.network(
-      'https://api.builder.io/api/v1/image/assets/TEMP/d625d958967680e65f2e45cbdbf83b219678e7d9?width=454',
+    return Image.asset(
+      'assets/logo/app_logo.png', // Đường dẫn tới file logo của bạn
       width: width,
       height: height,
       fit: BoxFit.contain,
@@ -73,8 +73,8 @@ class WelcomeScreen extends StatelessWidget {
     double containerHeight = size.height < 892 ? size.height : 892;
 
     // Logo dimensions
-    double logoWidth = isMobile ? 210 : (isTablet ? 210 : 227);
-    double logoHeight = isMobile ? 80 : (isTablet ? 80 : 91);
+    double logoWidth = isMobile ? 240 : (isTablet ? 240 : 227);
+    double logoHeight = isMobile ? 90 : (isTablet ? 90 : 91);
 
     // Font sizes
     double welcomeFontSize = isMobile ? 22 : (isTablet ? 24 : 26);
@@ -110,7 +110,7 @@ class WelcomeScreen extends StatelessWidget {
                   _buildLogo(logoWidth, logoHeight),
                   const SizedBox(height: 140),
                   Text(
-                    'Welcome to Schedulor',
+                    'Welcome to Ryder English',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: const Color(0xFF3009B5),
