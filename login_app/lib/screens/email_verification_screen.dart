@@ -56,7 +56,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('Email has been verified!'),
+            content: Text('Email đã được xác minh!'),
             backgroundColor: Colors.green,
           ),
         );
@@ -74,7 +74,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('Verification email has been sent!'),
+            content: Text('Email xác minh đã được gửi!'),
             backgroundColor: Colors.green,
           ),
         );
@@ -111,10 +111,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Email Verification'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text('Xác minh Email'), centerTitle: true),
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -132,7 +129,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
 
                 // Title
                 Text(
-                  'Email Verification',
+                  'Xác minh Email',
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
@@ -142,7 +139,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
 
                 // Description
                 Text(
-                  'A verification email has been sent to: ',
+                  'Một email xác minh đã được gửi đến: ',
                   style: Theme.of(
                     context,
                   ).textTheme.bodyMedium?.copyWith(color: Colors.grey[700]),
@@ -167,15 +164,15 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Next steps:',
+                          'Các bước tiếp theo:',
                           style: Theme.of(context).textTheme.titleMedium
                               ?.copyWith(fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(height: 12),
-                        _buildStep(1, 'Check your inbox'),
-                        _buildStep(2, 'Open email from Firebase'),
-                        _buildStep(3, 'Click on the verification link'),
-                        _buildStep(4, 'Back to this app'),
+                        _buildStep(1, 'Kiểm tra hộp thư đến của bạn'),
+                        _buildStep(2, 'Mở email từ Firebase'),
+                        _buildStep(3, 'Nhấp vào liên kết xác minh'),
+                        _buildStep(4, 'Quay lại ứng dụng này'),
                       ],
                     ),
                   ),
@@ -186,7 +183,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                 ElevatedButton.icon(
                   onPressed: _checkEmailVerified,
                   icon: const Icon(Icons.refresh),
-                  label: const Text('Check status'),
+                  label: const Text('Kiểm tra trạng thái'),
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 24,
@@ -202,8 +199,8 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                   icon: const Icon(Icons.email),
                   label: Text(
                     _canResendEmail
-                        ? 'Resend email'
-                        : 'Send back after $_resendCountdown giây',
+                        ? 'Gửi lại email'
+                        : 'Gửi lại sau $_resendCountdown giây',
                   ),
                 ),
                 const SizedBox(height: 24),
@@ -225,7 +222,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                       const SizedBox(width: 12),
                       Expanded(
                         child: Text(
-                          'Do not see the email? Check your spam folder',
+                          'Không thấy email? Kiểm tra thư mục thư rác',
                           style: TextStyle(
                             color: Colors.blue[900],
                             fontSize: 12,
@@ -245,7 +242,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                       Navigator.pop(context);
                     }
                   },
-                  child: const Text('Log out'),
+                  child: const Text('Đăng xuất'),
                 ),
               ],
             ),

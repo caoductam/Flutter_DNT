@@ -51,7 +51,7 @@ class WelcomeScreen extends StatelessWidget {
           );
         },
         child: Text(
-          'Get started',
+          'Bắt đầu',
           style: TextStyle(
             color: Colors.white,
             fontSize: fontSize,
@@ -110,7 +110,7 @@ class WelcomeScreen extends StatelessWidget {
                   _buildLogo(logoWidth, logoHeight),
                   const SizedBox(height: 140),
                   Text(
-                    'Welcome to Ryder English',
+                    'Chào mừng đến với Ryder English',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: const Color(0xFF3009B5),
@@ -121,7 +121,7 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 24),
                   Text(
-                    'Unlock English. Unlock Opportunity',
+                    'Mở khóa tiếng Anh. Mở khóa cơ hội',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.black,
@@ -132,7 +132,7 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 18),
                   Text(
-                    'English Made Easy. Success Made Closer',
+                    'Tiếng Anh Dễ Dàng. Thành Công Gần Hơn',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.black,

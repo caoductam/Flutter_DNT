@@ -41,7 +41,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('Registration successful!'),
+            content: Text('Đăng ký thành công!'),
             backgroundColor: Colors.green,
           ),
         );
@@ -99,7 +99,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 64),
                 Text(
-                  'Create Account',
+                  'Tạo tài khoản',
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
@@ -107,7 +107,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Fill in information to create a new account',
+                  'Điền thông tin để tạo tài khoản mới',
                   style: Theme.of(
                     context,
                   ).textTheme.bodyMedium?.copyWith(color: Colors.grey),
@@ -163,10 +163,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
       ),
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Please enter email';
+          return 'Vui lòng nhập email';
         }
         if (!value.contains('@')) {
-          return 'Invalid email';
+          return 'Email không hợp lệ';
         }
         return null;
       },
@@ -178,7 +178,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       controller: _passwordController,
       obscureText: _obscurePassword,
       decoration: InputDecoration(
-        labelText: 'Password',
+        labelText: 'Mật khẩu',
         hintText: '••••••••',
         prefixIcon: const Icon(Icons.lock_outlined),
         suffixIcon: IconButton(
@@ -197,10 +197,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
       ),
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Please enter password';
+          return 'Vui lòng nhập mật khẩu';
         }
         if (value.length < 6) {
-          return 'Password must be at least 6 characters';
+          return 'Mật khẩu phải có ít nhất 6 ký tự';
         }
         return null;
       },
@@ -212,7 +212,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       controller: _confirmPasswordController,
       obscureText: _obscureConfirmPassword,
       decoration: InputDecoration(
-        labelText: 'Confirm password',
+        labelText: 'Xác nhận mật khẩu',
         hintText: '••••••••',
         prefixIcon: const Icon(Icons.lock_outlined),
         suffixIcon: IconButton(
@@ -231,10 +231,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
       ),
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Please confirm password';
+          return 'Vui lòng xác nhận mật khẩu';
         }
         if (value != _passwordController.text) {
-          return 'Passwords do not match';
+          return 'Mật khẩu không khớp';
         }
         return null;
       },
@@ -261,7 +261,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                 ),
               )
-            : const Text('Register', style: TextStyle(fontSize: 16)),
+            : const Text('Đăng ký', style: TextStyle(fontSize: 16)),
       ),
     );
   }
@@ -273,12 +273,12 @@ class _LoginLink extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text('Already have an account?'),
+        const Text('Bạn đã có tài khoản?'),
         TextButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          child: const Text('Login'),
+          child: const Text('Đăng nhập'),
         ),
       ],
     );

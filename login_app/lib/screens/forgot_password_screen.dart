@@ -39,7 +39,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('Password reset email has been sent!'),
+            content: Text('Email đặt lại mật khẩu đã được gửi!'),
             backgroundColor: Colors.green,
           ),
         );
@@ -62,7 +62,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Forgot Password'), centerTitle: true),
+      appBar: AppBar(title: const Text('Quên mật khẩu'), centerTitle: true),
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -91,7 +91,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
           // Tiêu đề
           Text(
-            'Reset Password',
+            'Đặt lại mật khẩu',
             style: Theme.of(
               context,
             ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
@@ -99,7 +99,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
           ),
           const SizedBox(height: 8),
           Text(
-            'Enter your email to receive a password reset link',
+            'Nhập email của bạn để nhận liên kết đặt lại mật khẩu',
             style: Theme.of(
               context,
             ).textTheme.bodyMedium?.copyWith(color: Colors.grey),
@@ -121,10 +121,10 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             ),
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Please enter email';
+                return 'Vui lòng nhập email';
               }
               if (!value.contains('@')) {
-                return 'Invalid email';
+                return 'Email không hợp lệ';
               }
               return null;
             },
@@ -149,7 +149,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                     ),
                   )
-                : const Text('Send Email', style: TextStyle(fontSize: 16)),
+                : const Text('Gửi Email', style: TextStyle(fontSize: 16)),
           ),
           const SizedBox(height: 16),
 
@@ -158,7 +158,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             onPressed: () {
               Navigator.pop(context);
             },
-            child: const Text('Back to Login'),
+            child: const Text('Quay lại Đăng nhập'),
           ),
         ],
       ),
@@ -182,7 +182,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
         // Success Message
         Text(
-          'Email Sent!',
+          'Email đã gửi!',
           style: Theme.of(
             context,
           ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
@@ -191,7 +191,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         const SizedBox(height: 16),
 
         Text(
-          'We have sent a password reset link to:\n${_emailController.text}',
+          'Chúng tôi đã gửi liên kết đặt lại mật khẩu tới:\n${_emailController.text}',
           style: Theme.of(
             context,
           ).textTheme.bodyMedium?.copyWith(color: Colors.grey[700]),
@@ -200,7 +200,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         const SizedBox(height: 8),
 
         Text(
-          'Please check your email (including spam folder)',
+          'Vui lòng kiểm tra email của bạn (bao gồm cả thư mục thư rác)',
           style: Theme.of(
             context,
           ).textTheme.bodySmall?.copyWith(color: Colors.grey),
@@ -219,7 +219,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               borderRadius: BorderRadius.circular(12),
             ),
           ),
-          child: const Text('Back to Login'),
+          child: const Text('Quay lại Đăng nhập'),
         ),
         const SizedBox(height: 12),
 
@@ -229,7 +229,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               _emailSent = false;
             });
           },
-          child: const Text('Resend email'),
+          child: const Text('Gửi lại email'),
         ),
       ],
     );

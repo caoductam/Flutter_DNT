@@ -5,6 +5,7 @@ import 'firebase_options.dart';
 import 'screens/login_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/welcome_screen.dart';
+import 'screens/home_main.dart';
 
 void main() async {
   // Đảm bảo Flutter đã khởi tạo
@@ -54,7 +55,8 @@ class AuthWrapper extends StatelessWidget {
 
         // Nếu chưa đăng nhập → LoginScreen
         // return const LoginScreen();
-        return const WelcomeScreen();
+        // return const WelcomeScreen();
+        return const HomeMain();
       },
     );
   }
