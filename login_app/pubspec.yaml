@@ -39,6 +39,7 @@ dependencies:
   google_sign_in: ^6.2.1  # Thêm package này
   image_picker: ^1.0.7     # Để upload avatar
   flutter_facebook_auth: ^7.1.1  # Thêm package này
+  speech_to_text: ^7.3.0
   
 
 dev_dependencies:
