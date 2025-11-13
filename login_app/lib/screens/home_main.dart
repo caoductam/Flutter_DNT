@@ -19,8 +19,7 @@
 //   Widget build(BuildContext context) {
 //     return Scaffold(
 //       backgroundColor: Colors.grey[100],
-//       resizeToAvoidBottomInset:
-//           true, // Đảm bảo không bị tràn khi bàn phím xuất hiện
+//       resizeToAvoidBottomInset: true,
 //       bottomNavigationBar: const BottomNavigation(),
 //       body: SafeArea(
 //         child: LayoutBuilder(
@@ -145,8 +144,7 @@
 //               );
 //             });
 //           },
-//           localeId:
-//               'vi_VN', // Đặt ngôn ngữ tiếng Việt, đổi thành 'en_US' nếu cần tiếng Anh
+//           localeId: 'vi_VN',
 //         );
 //       }
 //     } else {
@@ -242,7 +240,7 @@
 //   }
 // }
 
-// // Main Content Section
+// // Main Content Section (ĐÃ SỬA)
 // class _MainContentSection extends StatelessWidget {
 //   const _MainContentSection();
 
@@ -255,8 +253,9 @@
 //         responsiveSize(context, 15),
 //         responsiveSize(context, 53),
 //       ),
-//       child: Column(
-//         crossAxisAlignment: CrossAxisAlignment.start,
+//       child: ListView(
+//         shrinkWrap: true,
+//         physics: const NeverScrollableScrollPhysics(),
 //         children: [
 //           Text(
 //             'Bạn muốn học gì hôm nay ?',
@@ -335,9 +334,7 @@
 //   @override
 //   Widget build(BuildContext context) {
 //     double width = MediaQuery.of(context).size.width;
-//     int crossAxisCount = width < 600
-//         ? 3
-//         : 6; // 3 cột cho mobile, 6 cho tablet/web
+//     int crossAxisCount = width < 600 ? 3 : 6;
 
 //     return GridView.builder(
 //       shrinkWrap: true,
@@ -638,7 +635,7 @@ class _SliderSection extends StatelessWidget {
   }
 }
 
-// Main Content Section (ĐÃ SỬA)
+// Main Content Section
 class _MainContentSection extends StatelessWidget {
   const _MainContentSection();
 
@@ -688,44 +685,38 @@ class _MainContentSection extends StatelessWidget {
   }
 }
 
-// Category Grid Responsive
+// Category Grid Responsive - ĐÃ SỬA ĐỂ TRÁNH OVERFLOW
 class _CategoryGrid extends StatelessWidget {
   final List<Map<String, dynamic>> categories = [
     {
       'imageUrl':
           'https://api.builder.io/api/v1/image/assets/cd1262fbd5fd4c92bd2cf4090cfb7263/374482892ccf829baf51e69eb3f62c141d108c8e?placeholderIfAbsent=true',
       'title': 'Grammar',
-      'padding': EdgeInsets.fromLTRB(24, 5, 24, 11),
     },
     {
       'imageUrl':
           'https://api.builder.io/api/v1/image/assets/cd1262fbd5fd4c92bd2cf4090cfb7263/8c0e6ba61317040ea059d68463d70838570b1aab?placeholderIfAbsent=true',
       'title': 'Vocabulary',
-      'padding': EdgeInsets.fromLTRB(24, 7, 24, 7),
     },
     {
       'imageUrl':
           'https://api.builder.io/api/v1/image/assets/cd1262fbd5fd4c92bd2cf4090cfb7263/3682fae96f5b60062c17615c9d6546861e2f24c0?placeholderIfAbsent=true',
       'title': 'Reading',
-      'padding': EdgeInsets.fromLTRB(24, 7, 24, 7),
     },
     {
       'imageUrl':
           'https://api.builder.io/api/v1/image/assets/cd1262fbd5fd4c92bd2cf4090cfb7263/8da000ab6105faf40b1ce8014cce645f7aa20bd6?placeholderIfAbsent=true',
       'title': 'Listening',
-      'padding': EdgeInsets.fromLTRB(24, 7, 24, 7),
     },
     {
       'imageUrl':
           'https://api.builder.io/api/v1/image/assets/cd1262fbd5fd4c92bd2cf4090cfb7263/824658e851a613665780ce8aa64cd7447eaa476d?placeholderIfAbsent=true',
       'title': 'Writing',
-      'padding': EdgeInsets.fromLTRB(24, 7, 24, 7),
     },
     {
       'imageUrl':
           'https://api.builder.io/api/v1/image/assets/cd1262fbd5fd4c92bd2cf4090cfb7263/422c553291cb516533f6e30d894252fa848f7e34?placeholderIfAbsent=true',
       'title': 'Speaking',
-      'padding': EdgeInsets.fromLTRB(24, 7, 24, 7),
     },
   ];
 
@@ -733,6 +724,9 @@ class _CategoryGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     int crossAxisCount = width < 600 ? 3 : 6;
+
+    // Tăng childAspectRatio để tạo thêm không gian chiều cao
+    double aspectRatio = width < 600 ? 0.85 : 1.0;
 
     return GridView.builder(
       shrinkWrap: true,
@@ -742,14 +736,17 @@ class _CategoryGrid extends StatelessWidget {
         crossAxisCount: crossAxisCount,
         mainAxisSpacing: responsiveSize(context, 14),
         crossAxisSpacing: responsiveSize(context, 14),
-        childAspectRatio: 1,
+        childAspectRatio: aspectRatio, // Đã điều chỉnh
       ),
       itemBuilder: (context, index) {
         final cat = categories[index];
         return CategoryCard(
           imageUrl: cat['imageUrl'],
           title: cat['title'],
-          padding: cat['padding'],
+          padding: EdgeInsets.symmetric(
+            horizontal: responsiveSize(context, 8),
+            vertical: responsiveSize(context, 8),
+          ),
         );
       },
     );
